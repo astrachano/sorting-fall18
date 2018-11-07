@@ -17,10 +17,10 @@ public class SortAll {
 	public static class BubbleSort implements Sorter {
 
 		@Override
-		public <T extends Comparable<? super T>> void sort(List<T> list) {
-			int j,k;
-			for(j=list.size()-1; j > 0; j--) {
-				for(k=0; k < j; k++) {
+		public <T extends Comparable<? super T>> 
+		  void sort(List<T> list) {
+			for(int j=list.size()-1; j > 0; j--) {
+				for(int k=0; k < j; k++) {
 					if (list.get(k+1).compareTo(list.get(k)) < 0) {
 						swap(list,k,k+1);
 					}
