@@ -32,10 +32,11 @@ public class SortAll {
 	public static class SelectionSort implements Sorter {
 
 		@Override
-		public <T extends Comparable<? super T>> void sort(List<T> list) {
-			int min;
+		public <T extends Comparable<? super T>> 
+		void sort(List<T> list) {
+
 			for(int j=0; j < list.size()-1; j++) {
-				min = j;
+				int min = j;
 				for(int k=j+1; k < list.size(); k++) {
 					if (list.get(k).compareTo(list.get(min)) < 0){
 						min = k;
