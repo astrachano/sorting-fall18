@@ -97,6 +97,19 @@ public class SortAll {
 		}
 	}
 
+	public static class PQSorter implements Sorter {
+
+		@Override
+		public <T extends Comparable<? super T>> 
+		void sort(List<T> list) {
+			PriorityQueue<T> pq = new PriorityQueue<>(list);
+			list.clear();
+			while (pq.size() > 0) {
+				list.add(pq.remove());
+			}
+		}
+		
+	}
 
 	public static class QuickSort implements Sorter {
 
@@ -193,6 +206,7 @@ public class SortAll {
 				new JavaUtilSort(),
 				new QuickSort(),
 				new MergeSort(),
+				new PQSorter(),
 				new InsertionSort(),
 				new SelectionSort(),
 				//new RecursiveSelectionSort(),

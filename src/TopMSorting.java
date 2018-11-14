@@ -18,13 +18,15 @@ public class TopMSorting {
 		return list;
 	}
 	
-	public static List<String> sortTopM(List<String> list, int mSize, Comparator<String> comp){
+	public static List<String> sortTopM(List<String> list, int mSize, 
+			                            Comparator<String> comp){
 		List<String> copy = new ArrayList<>(list);
 		Collections.sort(copy,comp.reversed());
 		return copy.subList(0, mSize);
 	}
 	
-	public static List<String> pqTopM(List<String> list, int mSize, Comparator<String> comp) {
+	public static List<String> pqTopM(List<String> list, int mSize, 
+			                          Comparator<String> comp) {
 		PriorityQueue<String> pq = new PriorityQueue<>(comp);
 		for(String s : list) {
 			pq.add(s);
@@ -48,7 +50,7 @@ public class TopMSorting {
 		System.out.printf("creating %d random strings in %1.3f\n", list.size(),(end-start)/1e9);
 		System.out.println("\ncomparison counts in thousands\n");
 		System.out.println("size\tsort time/comp\tpq time/comp\n");
-		for(int k=2; k <= 2048; k *= 2) {
+		for(int k=2; k <= 4096; k *= 2) {
 			start = System.nanoTime();
 			CountedComparator<String> scomp = new CountedComparator(comp);
 			List<String> slist = sortTopM(list,k,scomp);

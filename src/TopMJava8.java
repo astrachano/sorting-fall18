@@ -43,7 +43,6 @@ public class TopMJava8 {
         		                   .mapToObj(Integer::valueOf)
         		                   .collect(Collectors.toList());
         
-        Collections.sort(list);
         Collections.shuffle(list);
 
         double start = System.nanoTime();    

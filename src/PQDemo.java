@@ -31,7 +31,7 @@ public class PQDemo {
         if (retval == JFileChooser.APPROVE_OPTION){
             File f = ourChooser.getSelectedFile();  
             Scanner s = new Scanner(f);
-            ArrayList<String> list = new ArrayList<>();
+            Set<String> list = new TreeSet<>();
             
             while (s.hasNext()){
                 list.add(s.next());
